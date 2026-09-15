@@ -5,16 +5,36 @@ the architectural thesis this repository tests.**
 
 > The agent proposes the world. Nomos supplies the law.
 
-> The agent names the thing. Namespaces own state. Capabilities define
-> obligations. The resolver composes effective facts. Projection compilers own
-> the consequences. The runtime executes a sealed world. The renderer owns every
-> pixel. A cold stranger can rebuild and explain all of it.
+The practical goal is to make coherent game worlds easier for AI authors to
+build: describe a place through a bounded vocabulary, let shared rules own its
+consequences, and inspect or reproduce the result. A useful visual vocabulary
+must produce places people actually want to look at. Consistency alone is not
+the finish line. This remains a research goal, not a shipped capability.
 
 New machine or new agent? Read [the current handoff](docs/HANDOFF.md) before
 choosing work. It contains the fresh-box prerequisites, proof order, exact stop
 line, and operational gotchas.
 
 **Play the six-area viewer:** <https://conarylabs.github.io/nomos/>
+
+## Next visible result
+
+**One real reference scene, rendered at ordinary play size, that Peter wants
+to look at.** Start with the [reference-scene brief](experiments/look-kernel/README.md)
+for [issue #205](https://github.com/TusanHomichi/nomos/issues/205), using the
+existing gaol target pack as taste evidence rather than runtime assets.
+
+Define the bounded candidate and its checks prospectively, build the reference
+slice, and put its actual rendered frame in front of the owner before expanding
+the scene set. After reference approval and the complete experiment freeze,
+two independent authors must create materially different scenes using content
+edits only. Report visual quality, authoring effort, and technical/boundary
+evidence separately; all existing acceptance requirements still apply.
+
+The reference scene has not been implemented or accepted. Runtime expansion
+remains paused: R1 stays intact, R2 stays stopped, and no game integration is
+authorized. A rejected reference stops for owner disposition. An accepted
+reference alone does not complete the experiment or authorize promotion.
 
 ## Status
 
@@ -129,7 +149,7 @@ proof or repair run.
 5. [decision 0023](docs/decisions/0023-observed-scene-presentation-epoch.md)
    — narrow R2 authority, semantic boundary, target order, and stop line.
 6. [THESIS.md](THESIS.md) — the exploratory architecture and adoption bars.
-7. [KERNEL.md](KERNEL.md) — frozen Gate K revision 7 contract.
+7. [KERNEL.md](KERNEL.md) — frozen Gate K contract, revision 7.
 8. [RUNTIME.md](RUNTIME.md) — accepted R1 revision 4 contract.
 9. [decision 0021](docs/decisions/0021-runtime-revision-4.md) — revision 4's
    lifecycle-history repair after R1 closed.
@@ -155,7 +175,7 @@ RUNTIME.md         accepted R1 contract, revision 4
 docs/HANDOFF.md    current operational state and fresh-box setup
 docs/decisions/    owner-authorized contract and architecture decisions
 docs/evaluation/   reproducible proofs and immutable run archive
-docs/review/       subsystem designs, audits, and review receipts
+docs/review/       review syntheses, provenance notes, and review receipts
 crates/            six kernel crates, two declared R1 crates, and one isolated R2 crate
 apps/nomos-viewer/ accepted offline viewer and browser harness
 apps/nomos-observed-viewer/ isolated unadmitted R2 viewer and browser harness
