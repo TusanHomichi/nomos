@@ -15,6 +15,10 @@ New machine or new agent? Read [the current handoff](docs/HANDOFF.md) before
 choosing work. It contains the fresh-box prerequisites, proof order, exact stop
 line, and operational gotchas.
 
+The standing [project workflow](docs/workflow.md) covers task graphs, model
+roles, evidence, checks and permissions. Its setup and independent verification
+are tracked in [#211](https://github.com/TusanHomichi/nomos/issues/211).
+
 **Play the six-area viewer:** <https://conarylabs.github.io/nomos/>
 
 ## Next visible result
@@ -132,33 +136,25 @@ The browser lane requires Node 22 or newer and Chrome/Chromium; set
 `CHROME_BIN` when discovery cannot find the binary. See
 [docs/HANDOFF.md](docs/HANDOFF.md) for complete setup and worktree rules.
 
-The handoff retains the historical R2-2 commands so its evidence remains
+The handoff links the historical R2-2 commands so its evidence remains
 auditable. Decision 0027 stops that acceptance line; do not launch a new R2
 proof or repair run.
 
-## Read in this order
+## Documentation by task
 
-1. [docs/HANDOFF.md](docs/HANDOFF.md) — current state, fresh-box setup, stop
-   line, and next authorized action.
-2. [decision 0027](docs/decisions/0027-stop-r2-authorize-look-kernel-experiment.md)
-   — final R2 stop and the bounded look-kernel experiment authority.
-3. [decision 0019](docs/decisions/0019-r1-final-disposition.md) — final R1
-   verdict, evidence boundary, and no-adoption disposition.
-4. [decision 0022](docs/decisions/0022-mortal-estate-presentation-adoption-evidence.md)
-   — bounded Mortal Estate evidence authority and upstream-admission stop line.
-5. [decision 0023](docs/decisions/0023-observed-scene-presentation-epoch.md)
-   — narrow R2 authority, semantic boundary, target order, and stop line.
-6. [THESIS.md](THESIS.md) — the exploratory architecture and adoption bars.
-7. [KERNEL.md](KERNEL.md) — frozen Gate K contract, revision 7.
-8. [RUNTIME.md](RUNTIME.md) — accepted R1 revision 4 contract.
-9. [decision 0021](docs/decisions/0021-runtime-revision-4.md) — revision 4's
-   lifecycle-history repair after R1 closed.
-10. [decision 0020](docs/decisions/0020-runtime-revision-3.md) — revision 3's
-   exact comparison-count repair.
-11. [decision 0013](docs/decisions/0013-gate-k-disposition.md) and
-   [decision 0016](docs/decisions/0016-terminate-gate-k-round-two.md) — the
-   historical Gate K dispositions.
-12. [docs/workspace.md](docs/workspace.md) — crate map and dependency boundary.
+Start with [docs/HANDOFF.md](docs/HANDOFF.md) and the active issue, then read
+the relevant contract or decision. [AGENTS.md](AGENTS.md) routes task-specific
+reading; [docs/workflow.md](docs/workflow.md) governs substantive work.
+
+- Look-kernel experiment: [decision 0027](docs/decisions/0027-stop-r2-authorize-look-kernel-experiment.md)
+  and the [reference-scene brief](experiments/look-kernel/README.md).
+- Accepted runtime: [RUNTIME.md](RUNTIME.md),
+  [decision 0019](docs/decisions/0019-r1-final-disposition.md) and
+  [decision 0021](docs/decisions/0021-runtime-revision-4.md).
+- Kernel boundaries: [KERNEL.md](KERNEL.md) and
+  [docs/workspace.md](docs/workspace.md).
+- Thesis or adopter questions: [THESIS.md](THESIS.md) and
+  [decision 0022](docs/decisions/0022-mortal-estate-presentation-adoption-evidence.md).
 
 Subsystem designs and receipts live under `docs/review/` and
 `docs/evaluation/`. The large `docs/evaluation/runs/` archive and `gate-k-*`

@@ -1,149 +1,69 @@
 # Nomos handoff
 
-Status snapshot: 2026-08-31, after decision 0027 landed, R2's stopped records
-were closed without merge, and issue #205 became the only authorized capability
-work. This file is an operational map; owner decisions and revisioned contracts
-remain the authority when prose conflicts.
+Snapshot: 2026-09-23, reconciled against main
+`187596df0610bc0a9c27730921ba16ac40e58436` (PR #210). This is the current-state
+entry point; owner decisions and revisioned contracts remain authoritative.
 
-**Play the accepted six-area viewer:** <https://conarylabs.github.io/nomos/>
+## Current outcome and next action
 
-## Stop line
+The standing [workflow](workflow.md), adopted by
+[decision 0028](decisions/0028-evidence-driven-workflow.md), uses the existing
+issue/PR system. [#211](https://github.com/TusanHomichi/nomos/issues/211) owns the
+setup graph, exact candidate, checks, independent rerun and completion record.
+Its landing remains an owner action. Read that tracker for the live next action;
+there is no second mutable graph here.
 
-R1 is complete, passing, accepted, and closed as this repository's runtime
-baseline. Decision 0019 expressly does **not** adopt Nomos into a game. Decision
-0022's bounded Mortal Estate evidence then admitted one immutable R1 dependency
-point, recorded one representative adopter frame, and reduced the observed gap
-to an adopter-neutral fixture classified `reusable missing Nomos capability`.
+The next authorized capability remains
+[#205](https://github.com/TusanHomichi/nomos/issues/205): **one real reference
+scene at ordinary play size that Peter wants to look at**. Use the
+[reference-scene brief](../experiments/look-kernel/README.md). Define its bounded
+candidate and checks before implementation, show the rendered reference before
+expanding the scene set, then complete the freeze before the two independent
+content-only authors. Implementation has not begun. Reference acceptance alone
+cannot complete the experiment; rejection stops for owner disposition.
 
-Decision 0023 opened one narrow R2 observed-scene presentation epoch. The
-separately reviewed root `R2.md` revision 1 was owner-authorized. R2-1's strict
-carrier and compiler landed through PR #196 at
-`cc47a7235f92d0ed460c7db5d178448b12fdba02`, tree
-`2bce614d2df94464c20042cdf059a7b22ec39c09`. R2-2's isolated offline consumer
-and independent second scene landed through PR #198. Those implementation
-targets did not admit R2.
+Workflow setup does not start that experiment. Identity/URL cleanup remains
+[#200](https://github.com/TusanHomichi/nomos/issues/200). The existing automatic
+R2 CI job versus stopped-R2 authority is recorded in
+[#212](https://github.com/TusanHomichi/nomos/issues/212); no applicability ruling
+or workflow change is inferred here. Refresh open issues and PRs before choosing
+work. Historical branches do not supply authorization.
 
-PR #201 then assembled an unmerged final-proof candidate at commit
-`ad99db0daa3215a7f3af56540c6081bb12ce3121`, tree
-`60c49a38ed22d6db331c23831b392ce06b05a735`. Its applicable proofs passed, but
-the owner rejected the actual visual family. Decision 0027 therefore stops R2.
-The landed carrier, compiler, viewer, fixtures, and measurements remain
-unadmitted evidence. PR #201 remains exact, unmerged history; its additional
-contract revisions and decisions 0024 through 0026 are not imported into
-`main`. Its detached hosted job remains supplemental red evidence.
+## What works and where it stops
 
-Decision 0027 authorizes one future, separately falsifiable, Nomos-only
-look-kernel experiment under `experiments/`. That experiment has not begun. It
-must freeze one executable visual kit, permit cold authors to change content
-only, reproduce deterministic compiled artifacts, and receive an owner verdict
-on three actual-play-size frames. No R2 repair, Mortal Estate integration,
-accepted implementation, platform choice, or game-adoption claim is
-authorized.
+| Line | State and original authority |
+| --- | --- |
+| Gate K | Round one failed ([0013](decisions/0013-gate-k-disposition.md)); round two terminated incomplete ([0016](decisions/0016-terminate-gate-k-round-two.md)); no new attempt authorized. |
+| R1 | Accepted and closed runtime baseline ([0019](decisions/0019-r1-final-disposition.md)); [RUNTIME.md](../RUNTIME.md) revision 4 under [0021](decisions/0021-runtime-revision-4.md). |
+| Adopter evidence | Bounded prerequisites completed; no game integration/adoption authority ([0022](decisions/0022-mortal-estate-presentation-adoption-evidence.md), [0023](decisions/0023-observed-scene-presentation-epoch.md)). |
+| R2 | Stopped and unadmitted after visual rejection ([0027](decisions/0027-stop-r2-authorize-look-kernel-experiment.md)); landed code and unmerged PR #201 remain evidence. No repair, rerun or merge authorized. |
+| Look kernel | One quarantined experiment authorized by 0027; #205 and the reference brief govern its next gates. No platform choice or accepted implementation. |
 
-A fresh agent must not infer active work from an old remote branch. The
-repository intentionally retains evidence branches and annotated tags. Check
-owner decisions, then open issues and pull requests.
+The accepted surface includes the six dependency-free kernel crates,
+read-only effective facts/entity catalog, `nomos-render-plan`, `nomos-play`
+(native and wasm), and the offline `apps/nomos-viewer`. It plays six independently
+authored areas with authoritative movement, pursuit, receipts and replay.
+The quarantined study is a specification/comparison target, not accepted source.
 
-The exact last-main receipts at decision 0023's input baseline are:
+The public viewer remains at the historically configured
+<https://conarylabs.github.io/nomos/>; identity cleanup is tracked in #200.
+It is runtime evidence, not production art. Audio, networking, replication,
+combat, production scaling and an adopting game's Gate 0/Gate 1 remain absent.
+The Signed World thesis applies to no game. Nomos grants no cross-project authority.
 
-| Workflow | Run | Result |
-| --- | ---: | --- |
-| `verify` | [33052279259](https://github.com/ConaryLabs/nomos/actions/runs/33052279259) | success |
-| `gate-k-evidence` | [33052279261](https://github.com/ConaryLabs/nomos/actions/runs/33052279261) | success |
-| `nomos viewer` | [33052279276](https://github.com/ConaryLabs/nomos/actions/runs/33052279276) | success |
-| `executable gaol pages` | [32922996019](https://github.com/ConaryLabs/nomos/actions/runs/32922996019) | last applicable run succeeded at `22506c6` |
+The latest inspected input-main workflows all succeeded at `187596d`:
+[verify 35023408355](https://github.com/TusanHomichi/nomos/actions/runs/35023408355),
+[gate-k-evidence 35023408295](https://github.com/TusanHomichi/nomos/actions/runs/35023408295),
+and [nomos viewer 35023408283](https://github.com/TusanHomichi/nomos/actions/runs/35023408283).
+These are baseline receipts, not proof of a later setup candidate. PR #210's
+record explicitly distinguishes its author-side and hosted checks from an
+independent rerun.
 
-The final completed sequence before this handoff was PR #180, which closed #134
-and #141 by pinning load-bearing evaluation ordering to `LC_ALL=C`; PR #181,
-which closed #160 with bounded and receipt-recorded browser shutdown; and PR
-#185, which repaired `RUNTIME.md`'s stale revision-1 footer and established
-revision 4 without changing a criterion or R1's revision-3 acceptance evidence.
-PR #183 then refreshed the reinstall handoff at the exact decision 0022 input
-baseline. Each implementation or contract slice had its required exact-head
-non-author rerun, and every applicable workflow was green at its bound
-baseline.
-
-Decision 0022 then landed through PR #187. Issue #188 admitted its exact
-dependency point after a Luna max rerun. TME issue #5 and PR #6 recorded and
-independently reproduced the representative observer frame. Nomos issue #189
-and PR #190 reduced the gap to a quarantined generic fixture, received a Luna
-max cold attack, and closed on the owner's exact classification `reusable
-missing Nomos capability`. Decision 0023 is the resulting epoch boundary.
-R2-1 then landed through PR #196. R2-2's packet-frozen second scene was authored
-by an independent Luna Max agent without repository or adopter access; its
-source, compiled plan, signatures, browser receipt, and pixels entered
-unchanged. That evidence remains useful after the owner stopped the epoch; it
-is not an active acceptance line.
-
-## Authoritative state
-
-| Line | State | Authority |
-| --- | --- | --- |
-| Gate K round one | failed; criteria 17 and 18 failed | decision 0013 |
-| Gate K round two | terminated incomplete; no verdict | decision 0016 |
-| R1 | all five criteria passed; accepted and closed | decision 0019 |
-| R1 contract | revision 4 in force | `RUNTIME.md`, decision 0021 |
-| Game adoption | not authorized; thesis applies to no game | decision 0019 |
-| Mortal Estate presentation evidence | bounded prerequisite evidence complete; no adoption | decisions 0022 and 0023 evidence |
-| R2 observed-scene presentation epoch | stopped and unadmitted after visual-family rejection | decision 0027; PRs #196, #198, and unmerged #201 |
-| Look-kernel experiment | authorized but not begun; issue #205 is ready for a feature branch | decision 0027, issue #205 |
-| Current queue | issue #205 is the only authorized capability slice | GitHub issues and PRs, decision 0027 |
-
-The accepted R1 surface consists of:
-
-- the six dependency-free Gate K kernel crates and their SW-N semantic surface;
-- the read-only effective-facts and entity-catalog projections;
-- `nomos-render-plan`, including typed presentation source and the compiled
-  area collection;
-- `nomos-play`, including authoritative actors, commands, movement, pursuit,
-  receipts, session replay, and the wasm runtime;
-- `apps/nomos-viewer`, with vendored Three.js, a scanned offline public
-  artifact, native/browser session identity, and bounded browser shutdown.
-
-That accepted path is proved against six independently authored areas from the
-quarantined study: Cistern Walk, Drowned Stair, Ember Vault, Gloam Bastion,
-North Gaol, and Ossuary Reach. The study remains non-authoritative; it is a
-specification and comparison target, not accepted source.
-
-The public viewer is evidence for this repository runtime, not a production-art
-claim. Audio, networking, replication, combat, production scaling, an adopting
-game's Gate 0 target pack, and that game's Gate 1 proof remain absent.
-
-The stopped, unadmitted R2 implementation adds one dependency-isolated
-`nomos-observed-scene` crate and `apps/nomos-observed-viewer`. It proves a
-finite observed-scene carrier through two independently different scenes and a
-render-only isometric browser boundary. It remains evidence of those narrower
-properties, not an extension of the accepted R1 play runtime or an active work
-line.
-
-## Read in this order
-
-1. `README.md` — short project map and status.
-2. This file — operational state, setup, and stop line.
-3. `docs/decisions/0027-stop-r2-authorize-look-kernel-experiment.md` — the R2
-   stop verdict, preserved evidence, and exact boundary of the only authorized
-   capability experiment.
-4. `docs/decisions/0019-r1-final-disposition.md` — final R1 verdict and exact
-   non-claims.
-5. `docs/decisions/0022-mortal-estate-presentation-adoption-evidence.md` — the
-   bounded evidence authority, upstream-admission rule, and stop line.
-6. `docs/decisions/0023-observed-scene-presentation-epoch.md` — the historical
-   R2 authority, first-target order, adopter boundary, and stop line.
-7. `THESIS.md` — exploratory design thesis; not authority for another project.
-8. `KERNEL.md` — frozen Gate K revision 7 contract and historical failed bar.
-9. `RUNTIME.md` — accepted R1 revision 4 contract.
-10. `docs/decisions/0021-runtime-revision-4.md` — revision 4's exact
-   lifecycle-history repair.
-11. `docs/decisions/0020-runtime-revision-3.md` — revision 3's exact
-   comparison-count repair.
-12. `docs/decisions/0013-gate-k-disposition.md` and
-   `docs/decisions/0016-terminate-gate-k-round-two.md` — historical Gate K
-   verdicts.
-13. `docs/workspace.md` — crate graph and boundary proof.
-
-Read design records under `docs/review/` only for the subsystem being changed.
-The large `docs/evaluation/runs/` tree is immutable historical evidence, not a
-cache and not active work.
+For the preserved chronology, exact historical receipts and old R2 command list,
+see the [pre-setup handoff](https://github.com/TusanHomichi/nomos/blob/187596df0610bc0a9c27730921ba16ac40e58436/docs/HANDOFF.md),
+[decision 0027](decisions/0027-stop-r2-authorize-look-kernel-experiment.md) and
+[PR #210](https://github.com/TusanHomichi/nomos/pull/210). Historical commands are
+not a work queue. Task-specific reading is routed by [AGENTS.md](../AGENTS.md).
 
 ## Fresh Linux box
 
@@ -161,7 +81,8 @@ Install these host tools before expecting the complete proof to run:
 - common GNU userland used by the proof scripts, including `jq`, `sha256sum`,
   `find`, `sort`, `diff`, `cmp`, `sed`, `grep`, `stat`, and `timeout`.
 
-CI uses Ubuntu 24.04, Node 22, the pinned Rust toolchain, and Google Chrome.
+The viewer CI uses Ubuntu 24.04, Node 22, the pinned Rust toolchain, and
+Google Chrome; each workflow and receipt records its own runner.
 GitHub CLI is useful for repository state but is not needed to build.
 
 From a new checkout:
@@ -229,44 +150,10 @@ CDP, Chrome-process-group, and HTTP-server shutdown. PR #181 independently ran
 the full browser proof ten consecutive times; every process closed within 9 ms
 of the reviewer observing PASS, against a 2-second acceptance limit.
 
-The historical R2-2 local proof is:
-
-```bash
-cargo build --release --locked -p nomos-observed-scene
-docs/evaluation/r2-second-scene-packet.test.sh
-docs/evaluation/r2-schema-ownership.sh
-docs/evaluation/r2-source-provenance.sh
-docs/evaluation/r2-source-provenance.test.sh
-docs/evaluation/r2-adopter-neutrality.sh
-docs/evaluation/r2-adopter-neutrality.test.sh
-node docs/evaluation/r2-maximum.test.mjs
-node docs/evaluation/r2-scene-signature.mjs \
-  fixtures/r2/scenes/scene_one.json fixtures/r2/scenes/scene_two.json
-node --test apps/nomos-observed-viewer/test/*.test.mjs \
-  docs/evaluation/r2-scene-signature.test.mjs
-node apps/nomos-observed-viewer/build.mjs \
-  --plan fixtures/r2/plans/scene_one.json \
-  --plan fixtures/r2/plans/scene_two.json \
-  --out target/r2-observed-dist \
-  --receipt target/r2-observed-build.json
-CHROME_BIN=/absolute/path/to/chrome \
-  node apps/nomos-observed-viewer/smoke/smoke.mjs \
-    --dist target/r2-observed-dist \
-    --out target/r2-observed-smoke \
-    --samples 10
-```
-
-The two committed plans must also reproduce byte-for-byte from their canonical
-scene inputs. R2-2 acceptance requires 10 fresh browser profiles per scene,
-zero external requests, per-scene and combined p95 at most 5 seconds, process
-closure within 2 seconds, distribution size at most 2,000,000 bytes, and an
-exact-head Luna Max rerun. This is not the later complete network-isolated R2
-disposition proof. Decision 0027 stops that acceptance line: do not launch a
-new R2 proof, repair, retry, or disposition run.
-
-The formal archived Gate K harnesses are historical and materially heavier.
-Do not launch a new cold-agent attempt, checker, retry, or evidence assembly:
-decision 0016 authorizes none.
+Decision 0027 stops the R2 acceptance line. Do not launch its historical proof,
+repair, retry or disposition commands. The formal archived Gate K cold-agent
+attempts are also stopped under decision 0016; existing CI regression harnesses
+do not authorize another attempt. See the workflow for the automatic CI conflict.
 
 ## Operational gotchas
 
@@ -276,8 +163,9 @@ decision 0016 authorizes none.
 - If an external `CARGO_TARGET_DIR` is necessary, also audit commands that use
   `target/debug/nomos`, `target/release/nomos-play`, viewer wasm paths, or smoke
   defaults. Prefer the worktree-local default for the complete proof.
-- The Pages workflow runs only after a push to `main`. A green PR proves the
-  viewer lane, not the final Pages deployment; verify the main run after merge.
+- Pages has filtered pushes for `main` and `experiment/issue-*-executable-gaol`,
+  plus manual dispatch. A green PR is not a deployment receipt; after an
+  authorized merge, verify the exact main runs and any applicable Pages run.
 - The smoke lane skips without Chrome unless `--require-chrome` is present.
   Acceptance and CI use `--require-chrome`.
 - `apps/nomos-viewer/dist`, `target/executable-gaol`, the wasm module, and the
@@ -290,47 +178,23 @@ decision 0016 authorizes none.
 - Byte-sensitive evaluation scripts pin `LC_ALL=C`. Preserve that pin when
   adding ordering or tree-digest logic.
 
-## Establish current work after reinstall
-
-After cloning and before making a branch, run:
+## Reconcile before continuing
 
 ```bash
 git status --short --branch
+git fetch origin
 git log -5 --oneline --decorate
-git tag -l 'gate-k-*'
 gh issue list --state open
 gh pr list --state open
 gh run list --branch main --limit 8
 ```
 
-Expected steady state after this handoff update merges: clean `main`; open issue
-#205 as the only authorized capability work; unrelated repository-transfer
-issue #200; and no open pull request. Issue #204 and PR #206 are complete. R2
-issue #199 and PR #201 are closed as stopped and unmerged, with PR #201's exact
-branch preserved. Direction-pause issue #202 and PR #203 are superseded and
-closed. Pages retains its last applicable successful run when its path filter
-does not select the documentation change. Old remote heads may still exist;
-they do not override owner decisions or the open issue and pull-request lists.
+Inspect owned running processes, exact revisions and fresh receipts after an
+interruption, then reconcile the canonical graph before restarting work. Retain
+one next action and preserve other people's changes. An open issue alone does
+not authorize starting it, merging, deploying or changing a contract.
 
-## What can happen next
-
-Ordinary bug maintenance against the accepted R1 baseline may start from a new
-issue with falsifiable acceptance.
-
-Decision 0027 stops R2. Do not repair it, rerun its final proof, merge PR #201,
-or infer authority from its unmerged contract records. Root `R2.md` remains
-frozen historical revision-1 contract text; decision 0027 supplies its closed
-disposition without rewriting it.
-
-The next capability slice is issue #205's separately falsifiable look-kernel
-experiment. It must remain under `experiments/`, use one frozen executable
-visual kit, give cold authors content-only controls, compile deterministically,
-show one reference and two independently authored scenes at actual play size,
-and stop for the owner's frame-by-frame verdict.
-The experiment may fail cleanly; failure is evidence, not permission to weaken
-the bar or smuggle machinery changes into scene content.
-
-A deeper adopter boundary, platform choice, Gate K attempt, new accepted
-implementation, or adoption into a game requires its own owner decision. Work
-toward an actual game remains exploratory until the game satisfies its own
-gates and accepts measured cost.
+Ordinary R1 bug maintenance may begin from a falsifiable issue. New capability
+families, later runtime epochs, Gate K attempts, platform choices and game
+adoption require their own owner decisions. Follow [workflow.md](workflow.md)
+for permissions, effort policy, evidence invalidation and cleanup.
