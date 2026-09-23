@@ -1,111 +1,99 @@
 # Agent guide
 
-Read [README.md](README.md), then [docs/HANDOFF.md](docs/HANDOFF.md), then
-[docs/decisions/0027-stop-r2-authorize-look-kernel-experiment.md](docs/decisions/0027-stop-r2-authorize-look-kernel-experiment.md),
-then
-[docs/decisions/0019-r1-final-disposition.md](docs/decisions/0019-r1-final-disposition.md),
-then [docs/decisions/0022-mortal-estate-presentation-adoption-evidence.md](docs/decisions/0022-mortal-estate-presentation-adoption-evidence.md),
-then [docs/decisions/0021-runtime-revision-4.md](docs/decisions/0021-runtime-revision-4.md),
-then [THESIS.md](THESIS.md), [KERNEL.md](KERNEL.md), and [RUNTIME.md](RUNTIME.md).
-For changes to an acceptance contract, also read the latest applicable record
-under `docs/decisions/`.
+Nomos is a semantic game runtime for AI authors; The Signed World is the thesis
+it tests. Its practical goal is coherent worlds authored through bounded intent.
+Nothing here grants authority to another project.
 
-Nomos is the project/runtime; The Signed World is the thesis it tests. Nothing
-here is authority for any other project.
+## Start with the active task
 
-R2 is stopped under decision 0027. Its landed carrier/compiler and viewer remain
-unadmitted evidence and are not an active work line. The only authorized next
-capability work is one separately falsifiable, Nomos-only quarantined
-look-kernel experiment under issue #205 after decision 0027 lands. No Mortal
-Estate integration, R2 repair, or accepted implementation may be inferred from
-that authority.
+Read [README.md](README.md) and [docs/HANDOFF.md](docs/HANDOFF.md) for current
+state, then the issue's acceptance and relevant owner decision. For substantive
+work, follow [docs/workflow.md](docs/workflow.md), the standing procedure adopted
+by [decision 0028](docs/decisions/0028-evidence-driven-workflow.md). Verify the
+working tree and fresh open issue/PR lists; old branches are evidence, not a queue.
 
-## Working rules
+Read by task: [KERNEL.md](KERNEL.md) and [docs/workspace.md](docs/workspace.md)
+for kernel/dependency boundaries; [RUNTIME.md](RUNTIME.md) and decisions
+[0019](docs/decisions/0019-r1-final-disposition.md) /
+[0021](docs/decisions/0021-runtime-revision-4.md) for accepted R1 work;
+[0022](docs/decisions/0022-mortal-estate-presentation-adoption-evidence.md) for
+adopter boundaries; [THESIS.md](THESIS.md) for thesis questions; the latest
+applicable decision for any acceptance-contract change. Read subsystem reviews
+and historical receipts only when the task needs them.
 
-- **Acceptance precedes implementation.** `KERNEL.md` is the executable contract.
-  Code may discover that the contract is ambiguous, contradictory, impossible,
-  or based on a falsified assumption; it may not silently reinterpret it.
-- **Contract repair is explicit.** A correction requires an owner-authorized
-  decision record containing the prior wording, replacement wording, reason,
-  effect on existing evidence, owner disposition, and new contract revision.
-  Weakening a criterion merely because an implementation failed it is forbidden.
-- **No free-floating architecture.** Until Gate K passes, `THESIS.md` changes only
-  to record a resolved disagreement, repair a contradiction, or add an open
-  question. New mechanism belongs in executable code with a test, or nowhere.
-- **Engineer, do not patch the accepted path.** Workarounds and shims may not
-  enter the kernel merely to make a test pass. When a rewrite is the honest
-  answer, say so.
-- **Quarantined experiments are allowed.** Disposable work may live under
-  `experiments/` or on an explicitly experimental branch. It is non-authoritative,
-  cannot satisfy acceptance, and must be promoted through a clean implementation
-  before entering the accepted kernel.
-- **Touching a code file over ~1,000 lines means decomposing it in that change.**
-  This is an engineering rule of the shop, not a Gate K acceptance criterion:
-  Gate K is judged on dependency boundaries and observed behaviour, but a
-  routinely read or edited code file that has grown past about a thousand lines
-  is reorganised by whoever touches it next, so the tree is set up right for the
-  next author. Guiding documents such as `THESIS.md` are not subject to this
-  code-organisation rule.
-- **Fix or file immediately.** Anything found mid-work is fixed in that change or
-  recorded as an issue with evidence and a clear disposition.
-- **Nothing is green until someone other than its author reruns the proof.** The
-  rerun receipt records the commit, command, environment, result, and reviewer.
-- **Measure budgets; never assume them.** Build time, peak disk, validation
-  latency, replay throughput, and package size are numbers in the record, not
-  adjectives in a meeting.
-- **The kernel crates stay dependency-free by decision, not superstition.** The
-  six kernel crates admit no third-party dependency and `cargo xtask boundary`
-  still fails closed on them. Outside them, R1's dependency policy is set by
-  `docs/decisions/0017-post-gate-k-runtime-epoch.md`: a committed lockfile, each
-  dependency vendored or digest-pinned with its license preserved, and each
-  addition recorded in `RUNTIME.md`. This was never a permanent claim that later
-  epochs should reimplement mature libraries.
-- **Cold review is fuzzing, not authority.** A different model family may attack
-  design or code under `docs/review/`; a human owner decides what matters. Use
-  `docs/evaluation/COLD_AGENT_PROTOCOL.md` for formal cold-author and cold-debug
-  gates.
-- **Compiled worlds are immutable evidence.** Runtime commands, migrations, and
-  tests write new state or package artifacts; they never edit the input package
-  in place.
-- **Do not import another project's bureaucracy by accident.** Validators,
-  document families, routing tools, and conventions from other repositories
-  require a recorded decision here before use.
-- **Old branches are not a work queue.** Historical remote branches and tags
-  preserve evidence. Open GitHub issues and pull requests, together with owner
-  decisions, identify active work. At a new-session boundary, verify those
-  lists instead of inferring a task from a branch name.
+## Authority and engineering boundaries
 
-## Change flow
+- R1 is accepted and closed. R2 is stopped and unadmitted under
+  [decision 0027](docs/decisions/0027-stop-r2-authorize-look-kernel-experiment.md).
+  No R2 repair, rerun or merge is active. The only authorized next
+  capability is [#205](https://github.com/TusanHomichi/nomos/issues/205)'s
+  quarantined look-kernel experiment; begin with its
+  [reference-scene brief](experiments/look-kernel/README.md). It grants no
+  accepted implementation, platform choice, Mortal Estate integration or adoption.
+- Acceptance precedes implementation. Never silently reinterpret a contract or
+  weaken a criterion because an implementation failed. A contract repair needs
+  an owner-authorized decision with prior and replacement wording, reason,
+  effect on evidence, owner disposition and a new contract revision.
+- Until Gate K passes, `THESIS.md` changes only to record a resolved disagreement,
+  repair a contradiction or add an open question. New mechanism belongs in
+  executable code with a test. Engineer the accepted path; do not add a shim
+  merely to pass a check. Quarantined experiments satisfy no acceptance and need
+  clean implementation before promotion.
+- Touching a code file over about 1,000 lines requires decomposing it in that
+  change. This shop rule is separate from Gate K acceptance; guiding documents
+  are exempt. Fix findings in scope or file them immediately with evidence and
+  a clear disposition.
+- The six kernel crates admit no third-party dependencies. Outside them, R1 uses
+  a committed lockfile, vendored or digest-pinned dependencies, preserved licenses
+  and additions recorded in `RUNTIME.md`. The boundary checker fails closed on
+  undeclared members and forbidden edges.
+- Compiled worlds, input packages, historical receipts, evidence branches and
+  `gate-k-*` tags are protected evidence. Write new outputs; never repair inputs
+  in place or prune evidence as cleanup. Record measured budgets, not adjectives.
+- Cold review is design fuzzing; the human owner decides. Formal cold-author and
+  cold-debug gates use [COLD_AGENT_PROTOCOL.md](docs/evaluation/COLD_AGENT_PROTOCOL.md).
+  Import no other project's validators, document families or governance without
+  a Nomos decision. Decision 0028 adopts procedure only, with no new executor.
 
-1. Start from an issue with falsifiable acceptance.
-2. Create a feature branch; never develop directly on `main`.
-3. Keep the branch scoped to one implementation slice.
-4. Run the available proof locally or through CI.
-5. Open a draft pull request describing evidence, unresolved limits, and issue
-   coverage.
-6. Obtain a non-author rerun before calling the slice green.
-7. Leave merge and contract disposition to the owner.
+## Roles and completion
 
-## Repository layout
+Use explicit model and effort selection: `gpt-6-astra` / `max` owns conversation,
+planning, architecture, graph selection, review and integration; `gpt-6-sol` /
+`max` handles complex implementation/refactoring/debugging; `gpt-6-luna` / `max`
+handles bounded exploration, routine edits, documentation and test execution.
+Delegate when useful, with exact inputs, acceptance, file ownership and concurrency
+limits; workers preserve others' changes. The parent verifies artifacts. Record
+actual host/model availability, report unavailable routing and never silently
+substitute. Editing instructions cannot change a running model. DeepSeek remains
+paused unless the owner explicitly re-enables it.
 
-```text
-README.md          status and reading order
-docs/HANDOFF.md    current state, fresh-box setup, stop line, and next action
-THESIS.md          exploratory design thesis, currently revision 2
-KERNEL.md          Gate K acceptance contract, currently revision 7
-RUNTIME.md         accepted R1 baseline contract, currently revision 4
-docs/decisions/    owner-authorized contract and architecture decisions
-docs/evaluation/   reproducible evaluation protocols
-docs/review/       review syntheses, provenance notes, and cold-review records
-docs/workspace.md  crate map, boundary tool, and pinned workspace choices
-crates/            the six Gate K kernel crates
-xtask/             workspace tooling; the dependency-boundary check
-.github/workflows/ the verification lane
-experiments/       optional disposable work that cannot satisfy acceptance
+Start from a falsifiable issue and a feature branch, never develop on `main`.
+Keep one scoped slice and one canonical issue/PR/handoff graph for dependent work;
+simple tasks need only a short plan. Follow the workflow's effort policy and keep
+one next action. No fixed repair-count cap applies; explicit task budgets and
+experiment hard stops still govern. Continue ready authorized work without repeated permission, but
+graph edits grant no authority and do not change success criteria or reset effort.
+
+Review the diff, run the applicable proof, and open a draft PR with evidence,
+limits and issue coverage. Nothing is green until a non-author reruns the proof
+at the exact candidate, recording commit, command, environment, result and reviewer.
+Keep local, browser and hosted receipts distinct; relevant changes invalidate
+affected checks. **Leave merge and contract disposition to the owner.**
+
+## Checks
+
+Use the cheapest relevant feedback while developing. The ordinary workspace proof
+is:
+
+```bash
+cargo fmt --all -- --check
+cargo clippy --workspace --all-targets --locked -- -D warnings
+cargo test --workspace --locked
+cargo xtask boundary
 ```
 
-The Gate K workspace layout and permitted dependency edges are defined directly
-in `KERNEL.md`; do not infer them from the historical disagreement table.
-`docs/workspace.md` records where those crates live and how the boundary check
-proves them, and `cargo xtask boundary` fails closed on any new workspace member
-that neither `KERNEL.md` nor that document declares.
+For documentation, also inspect the diff, run `git diff --check` and check changed
+links and authority consistency. [Workflow check selection](docs/workflow.md#checks-and-evidence)
+preserves applicable hosted gates; [HANDOFF](docs/HANDOFF.md#verification-order)
+gives the accepted artifact/browser commands and setup. Do not launch stopped R2
+or historical Gate K formal attempts as routine validation.
