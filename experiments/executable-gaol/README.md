@@ -9,7 +9,7 @@ Two of the six — Gloam Bastion and Drowned Stair — were cold-authored from
 `AUTHORING.md` alone, one by a cross-family model, as a Gate 2/Gate 3
 miniature; see [docs/review/cold-author-area-five.md](../../docs/review/cold-author-area-five.md).
 
-**Play online:** <https://conarylabs.github.io/nomos/> — that page is the
+**Play online:** <https://tusanhomichi.github.io/nomos/> — that page is the
 promoted viewer under `apps/nomos-viewer/`, which is accepted R1 code. This
 study supplies the content it renders and the compiled artifacts it consumes,
 and nothing here is accepted.
