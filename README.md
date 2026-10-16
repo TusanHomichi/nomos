@@ -19,7 +19,7 @@ The standing [project workflow](docs/workflow.md) covers task graphs, model
 roles, evidence, checks and permissions. Its setup and independent verification
 are tracked in [#211](https://github.com/TusanHomichi/nomos/issues/211).
 
-**Play the six-area viewer:** <https://conarylabs.github.io/nomos/>
+**Play the six-area viewer:** <https://tusanhomichi.github.io/nomos/>
 
 ## Next visible result
 

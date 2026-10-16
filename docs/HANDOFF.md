@@ -45,8 +45,8 @@ read-only effective facts/entity catalog, `nomos-render-plan`, `nomos-play`
 authored areas with authoritative movement, pursuit, receipts and replay.
 The quarantined study is a specification/comparison target, not accepted source.
 
-The public viewer remains at the historically configured
-<https://conarylabs.github.io/nomos/>; identity cleanup is tracked in #200.
+The public viewer is at <https://tusanhomichi.github.io/nomos/>; the rest of
+the identity cleanup is tracked in #200.
 It is runtime evidence, not production art. Audio, networking, replication,
 combat, production scaling and an adopting game's Gate 0/Gate 1 remain absent.
 The Signed World thesis applies to no game. Nomos grants no cross-project authority.
@@ -88,7 +88,7 @@ GitHub CLI is useful for repository state but is not needed to build.
 From a new checkout:
 
 ```bash
-git clone https://github.com/ConaryLabs/nomos.git
+git clone https://github.com/TusanHomichi/nomos.git
 cd nomos
 git fetch --tags origin
 rustup show
