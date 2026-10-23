@@ -78,7 +78,9 @@ Review the diff, run the applicable proof, and open a draft PR with evidence,
 limits and issue coverage. Nothing is green until a non-author reruns the proof
 at the exact candidate, recording commit, command, environment, result and reviewer.
 Keep local, browser and hosted receipts distinct; relevant changes invalidate
-affected checks. **Leave merge and contract disposition to the owner.**
+affected checks. Merging is the steward's ([Pull requests](#pull-requests),
+[decision 0029](docs/decisions/0029-autoland-merges.md)); a merge is not
+acceptance. **Leave contract disposition to the owner.**
 
 ## Checks
 
@@ -97,3 +99,31 @@ links and authority consistency. [Workflow check selection](docs/workflow.md#che
 preserves applicable hosted gates; [HANDOFF](docs/HANDOFF.md#verification-order)
 gives the accepted artifact/browser commands and setup. Do not launch stopped R2
 or historical Gate K formal attempts as routine validation.
+
+## Pull requests
+
+Open PRs as drafts and leave them to the steward: it asks Codex for a review,
+and once Codex finds nothing on your head, every review thread is resolved and
+CI is green, it marks the PR ready and merges it. Fix or answer every finding:
+push the fix and reply with the commit, or reply with why it's wrong, then
+resolve the thread. Don't merge or mark ready yourself. A PR touching
+`docs/decisions/` or `THESIS.md` is settled the same way and then waits for
+the owner's merge.
+
+## Code Review Rules
+
+For reviewers, Codex included. Flag as P1:
+
+- a change that makes a check pass without fixing the thing it checks
+- tests or checks weakened, skipped or deleted to get green
+- secrets, tokens or personal data in the diff or the logs it adds
+- behavior changed beyond what the PR says it does
+- an acceptance contract or criterion reinterpreted or weakened without an
+  owner-authorized decision that records the old and new wording
+- a third-party dependency in one of the six kernel crates, or an undeclared
+  member or forbidden edge the boundary checker should have caught
+- protected evidence (compiled worlds, input packages, historical receipts,
+  evidence branches, `gate-k-*` tags) repaired in place or deleted
+- R2 repair, rerun or final-evidence work while decision 0027 stops it
+- a receipt claimed as independent acceptance when the author ran it
+- a code file over about 1,000 lines touched without decomposing it
