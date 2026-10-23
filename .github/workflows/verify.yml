@@ -1,7 +1,9 @@
 name: verify
 
-# The SW-B proof lane: formatting, lints, tests, the KERNEL.md section 10
-# dependency-boundary check, and a frozen canonicalization regression. The
+# The checks that need a git checkout: the evaluation harnesses make worktrees
+# and commits of the repository itself, so they cannot run in the Nix sandbox.
+# Formatting, lints, tests, the KERNEL.md section 10 dependency-boundary check
+# and the frozen canonicalization regression are the flake's (`flake.yml`). The
 # separate `gate-k-evidence.yml` workflow owns the process-level three-target
 # determinism matrix and measured acceptance-16 evidence.
 
@@ -24,34 +26,27 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    defaults:
+      run:
+        # The toolchains are the flake's dev shell, the same as `nix develop`
+        # locally.
+        shell: nix develop --command bash -euo pipefail {0}
     steps:
       - uses: actions/checkout@v7
+
+      - uses: cachix/install-nix-action@v31
 
       - name: Disk before
         run: |
           df -h
           du -sh ~/.cargo 2>/dev/null || true
 
-      - name: Install the pinned toolchain
+      - name: Record the pinned toolchain
         run: |
-          rustup show
-          rustup component add rustfmt clippy
           rustc --version
           cargo --version
-          cargo fmt --version
-          cargo clippy --version
-
-      - name: Format
-        run: cargo fmt --all -- --check
-
-      - name: Lint
-        run: cargo clippy --workspace --all-targets --locked -- -D warnings
-
-      - name: Test
-        run: cargo test --workspace --locked
-
-      - name: Dependency boundaries (KERNEL.md section 10, acceptance 15)
-        run: cargo xtask boundary
+          python3 --version
+          jq --version
 
       - name: Agy print preflight harness
         run: docs/evaluation/test-agy-print-preflight.sh
@@ -64,31 +59,6 @@ jobs:
 
       - name: Gate K evaluation packet and recorder harness
         run: docs/evaluation/test-gate-k-eval-tooling.sh
-
-      - name: Frozen canonical hash-domain regression
-        # The canonical-hash test prints `HASH <name> <hex>` lines. Four runs —
-        # debug twice, release twice — must produce byte-identical lines.
-        run: |
-          set -euo pipefail
-          export LC_ALL=C
-          hashes() {
-            cargo test --locked -p nomos-core --test determinism "$@" \
-              -- --nocapture --test-threads=1 | grep '^HASH ' | sort
-          }
-          hashes > debug-1.txt
-          hashes > debug-2.txt
-          hashes --release > release-1.txt
-          hashes --release > release-2.txt
-          # Exact count, not just non-empty: a silently dropped line would
-          # otherwise let a shrinking proof pass.
-          test "$(wc -l < debug-1.txt)" -eq 3 || {
-            echo "expected 3 HASH lines, got $(wc -l < debug-1.txt)"; exit 1;
-          }
-          diff -u debug-1.txt debug-2.txt
-          diff -u debug-1.txt release-1.txt
-          diff -u release-1.txt release-2.txt
-          echo "determinism: identical across debug and release on $(uname -m)"
-          cat debug-1.txt
 
       - name: Build
         run: |
