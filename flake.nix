@@ -12,7 +12,9 @@
     rust = { };
     python = { };
     node = { };
-    packages = pkgs: [ pkgs.jq ];
+    # The evaluation harnesses use jq, and `compgen`, which only the
+    # interactive bash builds in.
+    packages = pkgs: [ pkgs.jq pkgs.bashInteractive ];
     checks = pkgs:
       let
         # The toolchain rust-toolchain.toml pins, the one the workspace proof
