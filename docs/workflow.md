@@ -86,7 +86,8 @@ that task; unrelated remote changes require separate authorization.
 | Action | Boundary |
 | --- | --- |
 | Scoped local edits and checks; issue/evidence updates; feature push and draft PR | Existing flow for the assigned task |
-| Merge, writes to `main`, and contract disposition | Owner only |
+| Merging a settled PR | The autoland steward ([decision 0029](decisions/0029-autoland-merges.md)); a PR touching `docs/decisions/` or `THESIS.md` waits for the owner |
+| Other writes to `main`, and contract disposition | Owner only |
 | Deployment, manual publication, release, paid services, expanded paid capacity, or new capability | Not authorized by procedural setup |
 | Cleanup | Owned temporary outputs, processes, and worktrees after evidence is retained and read back |
 
@@ -182,10 +183,10 @@ first.
 
 Preserve immutable raw logs and receipts before cleanup, and record their
 digests in the canonical issue or PR. Read back the remote issue and PR to
-confirm their state, evidence links, and archived graph. If the owner has
-explicitly authorized a merge, verify the exact remote `main` commit and its
-applicable workflow results; record those main receipts separately from PR
-receipts. After confirmed evidence retention, remove only owned temporary
+confirm their state, evidence links, and archived graph. Once the steward (or,
+for a decision or `THESIS.md` change, the owner) has merged, verify the exact
+remote `main` commit and its applicable workflow results; record those main
+receipts separately from PR receipts. After confirmed evidence retention, remove only owned temporary
 outputs, processes, and worktrees. Keep the #211 branch for owner review; delete
 it only after merge or explicit owner authorization.
 

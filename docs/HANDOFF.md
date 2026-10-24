@@ -164,8 +164,8 @@ do not authorize another attempt. See the workflow for the automatic CI conflict
   `target/debug/nomos`, `target/release/nomos-play`, viewer wasm paths, or smoke
   defaults. Prefer the worktree-local default for the complete proof.
 - Pages has filtered pushes for `main` and `experiment/issue-*-executable-gaol`,
-  plus manual dispatch. A green PR is not a deployment receipt; after an
-  authorized merge, verify the exact main runs and any applicable Pages run.
+  plus manual dispatch. A green PR is not a deployment receipt; after a
+  merge, verify the exact main runs and any applicable Pages run.
 - The smoke lane skips without Chrome unless `--require-chrome` is present.
   Acceptance and CI use `--require-chrome`.
 - `apps/nomos-viewer/dist`, `target/executable-gaol`, the wasm module, and the
