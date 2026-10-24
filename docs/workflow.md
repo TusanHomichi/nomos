@@ -31,7 +31,7 @@ only a short plan. Each substantive node records:
 
 - a stable ID and concrete outcome;
 - dependencies;
-- assigned owner, requested model, and effort;
+- assigned owner, role, and effort;
 - exact inputs and owned files or artifacts;
 - falsifiable acceptance;
 - state, linked evidence, and remaining effort.
@@ -43,12 +43,12 @@ the exact revision, commands, and results.
 The issue for introducing this procedure is [#211](https://github.com/TusanHomichi/nomos/issues/211);
 its setup graph stays there and is not duplicated here.
 
-| ID | Outcome | Depends on | Owner / model | Inputs | Acceptance | State / evidence | Effort |
+| ID | Outcome | Depends on | Owner / role | Inputs | Acceptance | State / evidence | Effort |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A | Reproduce a candidate artifact | — | Luna / max | issue inputs and clean checkout | declared output hashes match | ready / receipt link | explicit budget, if set |
-| B | Independently review that artifact | A | Astra / max | A's exact commit and receipt | reviewer records command, environment, and result | blocked on A / review link | explicit budget, if set |
+| A | Reproduce a candidate artifact | — | Runner / max | issue inputs and clean checkout | declared output hashes match | ready / receipt link | explicit budget, if set |
+| B | Independently review that artifact | A | Lead / max | A's exact commit and receipt | reviewer records command, environment, and result | blocked on A / review link | explicit budget, if set |
 
-The table is illustrative, not a live queue. Astra selects ready nodes and owns
+The table is illustrative, not a live queue. The lead selects ready nodes and owns
 planning, architecture, review, and integration. A child unlocks only after
 its acceptance is checked against its artifacts; an agent's completion claim
 alone does not unlock work. If a batch has a failure, inspect every completed
@@ -61,12 +61,12 @@ and keep one next action.
 
 | Role | Assignment |
 | --- | --- |
-| `gpt-6-astra` / max | Conversation, task selection, architecture, graph changes, review, and integration |
-| `gpt-6-sol` / max | Complex implementation, refactoring, or difficult debugging |
-| `gpt-6-luna` / max | Bounded exploration, routine edits, documentation, and test execution |
-| DeepSeek | Paused; do not use unless the owner explicitly re-enables it |
+| Lead / max | Conversation, task selection, architecture, graph changes, review, and integration |
+| Implementer / max | Complex implementation, refactoring, or difficult debugging |
+| Runner / max | Bounded exploration, routine edits, documentation, and test execution |
 
-Record the requested model and effort, plus the actual host and model when
+Which model fills each role is set on the machine, not in this repository.
+Record the requested role and effort, plus the actual host and model when
 available. If routing is unavailable or differs, report that fact; never imply
 that an instruction changed the model of an already running agent. Dispatch
 with exact inputs, outcome, acceptance, file ownership, and isolation
@@ -119,21 +119,16 @@ duplicate an existing check. If a required tool is absent, first use authorized
 repository setup or an isolated local tool/dependency setup; do not change the
 accepted dependency set to make a check convenient.
 
-For accepted workspace code, the ordinary proof is:
-
-```bash
-cargo fmt --all -- --check
-cargo clippy --workspace --all-targets --locked -- -D warnings
-cargo test --workspace --locked
-cargo xtask boundary
-```
+For accepted workspace code, the ordinary proof is the one in
+[AGENTS.md](../AGENTS.md#checks); `nix flake check` runs it in the Nix sandbox.
 
 For documentation, inspect the diff, run `git diff --check`, audit changed
 relative links and anchors, and check scope and authority consistency. There is
 no dedicated Markdown/link checker or document template in this repository.
 Use the changed issue's required checks as well as applicable repository
-workflows. The PR workflows `verify`, `gate-k-evidence`, and `nomos viewer`
-run on ordinary pull requests; see [verify.yml](../.github/workflows/verify.yml),
+workflows. The PR workflows `flake`, `verify`, `gate-k-evidence`, and `nomos viewer`
+run on ordinary pull requests; see [flake.yml](../.github/workflows/flake.yml),
+[verify.yml](../.github/workflows/verify.yml),
 [gate-k-evidence.yml](../.github/workflows/gate-k-evidence.yml), and
 [nomos-viewer.yml](../.github/workflows/nomos-viewer.yml). The Pages workflow
 has no PR job; its push path filter does not select documentation-only changes.
@@ -165,8 +160,8 @@ Bind each receipt to real artifacts: candidate commit and tree, input and output
 hashes, exact commands, environment and tool versions, timing where measured,
 exit status, result, and reviewer. Preserve failure output and raw logs. Make no
 performance claim without comparable completed measurements. A non-author must
-rerun the applicable proof on the exact candidate; Luna executes the rerun and
-Astra reviews its raw artifacts. An author's own successful run is useful
+rerun the applicable proof on the exact candidate; the runner executes the rerun and
+the lead reviews its raw artifacts. An author's own successful run is useful
 development feedback, not independent acceptance evidence.
 
 ## Repair and restart
@@ -210,8 +205,7 @@ file path alone does not cause automatic discovery. Verify the loaded chain in
 a fresh session when the host exposes that information; otherwise report that
 limitation separately. Do not edit global Codex configuration as part of a
 repository task. See the official [AGENTS.md instructions
-guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md) and
-[GPT-6 Astra guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra).
+guide](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
 
 When the procedure reveals a gap, record the observed problem and evidence in
 the existing issue or PR, then propose the smallest reviewable change. A
