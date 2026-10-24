@@ -32,7 +32,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '24'
 
       # Toolchain provisioning belongs to the runner, not to the repository's
       # dependency closure. Force rustup to resolve the pinned toolchain and
@@ -86,7 +86,7 @@ jobs:
       # image's default.
       - uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Record the environment
         run: |
@@ -188,7 +188,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Record the host proof tools
         run: |
