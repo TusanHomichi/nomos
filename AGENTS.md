@@ -85,6 +85,8 @@ and historical receipts only when the task needs them.
 - Compiled worlds, input packages, historical receipts, evidence branches and
   `gate-k-*` tags are protected evidence. Write new outputs; never repair inputs
   in place or prune evidence as cleanup. Record measured budgets, not adjectives.
+- Repo-specific exception to the house rule on model names: the protected
+  evaluation records (receipts of what ran) may name models.
 - Cold review is design fuzzing; the human owner decides. Formal cold-author and
   cold-debug gates use [COLD_AGENT_PROTOCOL.md](docs/evaluation/COLD_AGENT_PROTOCOL.md).
   Import no other project's validators, document families or governance without
