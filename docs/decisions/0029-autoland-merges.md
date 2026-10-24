@@ -35,8 +35,9 @@ changes who merges. It changes no contract, criterion or capability.
 
 - **Authors leave PRs as drafts.** They fix or answer every finding and don't
   mark ready or merge. See AGENTS.md "Pull requests".
-- **A merge is not acceptance.** CI's `verify` run on the exact head is a
-  non-author rerun of the ordinary workspace proof. A proof CI doesn't run (the
+- **A merge is not acceptance.** CI's `flake` run on the exact head is a
+  non-author rerun of the ordinary workspace proof (AGENTS.md "Checks"); `verify`
+  only builds and runs the checkout harnesses. A proof CI doesn't run (the
   browser smoke, Gate K lanes, look-kernel scenes) still needs its non-author
   receipt in the PR or issue before it counts as acceptance evidence. A merged
   PR without that receipt has landed code, not accepted it.
