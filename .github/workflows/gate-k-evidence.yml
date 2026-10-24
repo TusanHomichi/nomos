@@ -32,7 +32,7 @@ jobs:
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
@@ -58,7 +58,7 @@ jobs:
             'target/gate-k-evidence/${{ matrix.lane }}'
 
       - name: Upload target evidence
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: gate-k-determinism-${{ matrix.lane }}
           path: target/gate-k-evidence/${{ matrix.lane }}
@@ -71,24 +71,24 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Download x86_64 debug evidence
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           name: gate-k-determinism-x86_64-debug
           path: target/downloaded/x86_64-debug
 
       - name: Download x86_64 release evidence
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           name: gate-k-determinism-x86_64-release
           path: target/downloaded/x86_64-release
 
       - name: Download aarch64 release evidence
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           name: gate-k-determinism-aarch64-release
           path: target/downloaded/aarch64-release
@@ -102,7 +102,7 @@ jobs:
             target/gate-k-evidence/cross-target
 
       - name: Upload cross-target receipt
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: gate-k-determinism-cross-target
           path: target/gate-k-evidence/cross-target
@@ -114,7 +114,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
@@ -131,7 +131,7 @@ jobs:
             target/gate-k-evidence/budgets-x86_64-release
 
       - name: Upload raw budget evidence
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: gate-k-budgets-x86_64-release
           path: target/gate-k-evidence/budgets-x86_64-release
@@ -143,7 +143,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
@@ -157,7 +157,7 @@ jobs:
             tee target/gate-k-evidence/schema-ownership/receipt.txt
 
       - name: Upload schema-ownership receipt
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: gate-k-schema-ownership
           path: target/gate-k-evidence/schema-ownership
